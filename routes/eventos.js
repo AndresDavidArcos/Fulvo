@@ -7,3 +7,4 @@ app.post("/RegistrarEvento", registrarEvento);
 app.get("/Eventos/:categoria", obtenerEventosPorCategoria);
 app.get("/UltimosEventos", ultimosEventos);
 
+module.exports = app;
