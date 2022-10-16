@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import "../styles/header.css";
+
 
 function Header() {
   const navigate = useNavigate();
@@ -41,13 +43,13 @@ function Header() {
           <img src="./images/fulvoLogo.png" alt="Deportes"/>
         </figure>
 
-        <nav>
-          <ul>
+        <nav className="nav">
+          <ul className="ul">
 
           {(Array.isArray(categorias))
           ?
             categorias.slice(0, 4).map( unaCategoria =>(
-                <li><Link className="a" to={"/Inicio/"+unaCategoria.nombre}>{unaCategoria.nombre}</Link></li>
+                <li className="li"><Link className="a" to={"/Inicio/"+unaCategoria.nombre}>{unaCategoria.nombre}</Link></li>
               )
 
           )
@@ -55,6 +57,28 @@ function Header() {
           :<p>Esto no es un Array</p>
 
           }
+          <li className="li"><Link className="a">Mas Deportes</Link>
+          <div className="subNav">
+            <ul className="ul">
+            {(Array.isArray(categorias))
+          ?
+            categorias.slice(4).map( unaCategoria =>(
+                <li className="li"><Link className="a" to={"/Inicio/"+unaCategoria.nombre}>{unaCategoria.nombre}</Link></li>
+              )
+
+          )
+          
+          :null
+
+          }
+
+
+            </ul>
+
+
+          </div>
+          
+          </li>
           </ul>
         </nav>
     </header>

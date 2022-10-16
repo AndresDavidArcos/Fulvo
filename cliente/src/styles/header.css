@@ -1,45 +1,54 @@
-nav{
+.nav{
     width: 90%;
     margin: 20px, auto;
     color: white;
+
 }
 
-ul{
-    list-style: none;
+a:-webkit-any-link {
     text-decoration: none;
+    color: White;
+    background-color: black;
+    margin-left: 5px;
+    padding: 5px;
 }
 
-nav ul{
+ul {
+    list-style-type: none;
+}
+
+.nav .ul{
     position: relative;
 }
 
-nav > ul > li{
+.nav .ul > .li{
     display: inline-block
+    
 }
 
 
-.nav > li > .a{
+.nav > .li > .a{
     background: rgb(40, 39, 37);
     padding: 20px;
     display: block;
 }
 
-.nav > li:hover > .a {
+.nav .li:hover > .a {
     background: rgb(79, 77, 72);
 
 }
 
-.despliegaDeportes{
+.subNav{
     background: rgb(79, 77, 72);
     padding: 10px;
     position: absolute;
     display: none;
 }
 
-.despliegaDeportes ul >li{
+.subNav .ul >.li{
     display: inline-block;
 }
 
-.nav li:hover .despliegaDeportes{
+.nav .li:hover .subNav{
     display: block;
 }
