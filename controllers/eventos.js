@@ -4,7 +4,8 @@ const Event = require("../models/eventos");
 module.exports = {
    async ultimosEventos(req, res){
       try {
-         const lastEvents = await Event.find({});
+         const {category} = req.params;
+         const lastEvents = await Event.find({categoria: category}).sort({fecha: -1}).limit(3);
          res.status(200).send({ data: lastEvents});
       } catch (next) {
          
@@ -16,7 +17,6 @@ module.exports = {
          const eventProps = req.body;
          console.log(eventProps);
          const eventCreated = await Event.create(eventProps);
-         console.log("b")
 
          res.status(201).send({ data: eventCreated});
       } catch (next) {
@@ -27,7 +27,7 @@ module.exports = {
 
    async obtenerEventosPorCategoria(req, res){
       try {
-         const category = req.params;
+         const {category} = req.params;
          const eventsByCategory = await Event.find({"categoria" : category});
          res.status(201).send({ data: eventsByCategory});
       } catch (next) {
@@ -36,3 +36,4 @@ module.exports = {
    }
 
 }
+

@@ -4,7 +4,7 @@ const app = express();
 
 
 app.post("/RegistrarEvento", registrarEvento);
-app.get("/Eventos/:categoria", obtenerEventosPorCategoria);
-app.get("/UltimosEventos", ultimosEventos);
+app.get("/Eventos/:category", obtenerEventosPorCategoria);
+app.get("/UltimosEventos/:category", ultimosEventos);
 
 module.exports = app;

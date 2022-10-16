@@ -1,0 +1,45 @@
+nav{
+    width: 90%;
+    margin: 20px, auto;
+    color: white;
+}
+
+ul{
+    list-style: none;
+    text-decoration: none;
+}
+
+nav ul{
+    position: relative;
+}
+
+nav > ul > li{
+    display: inline-block
+}
+
+
+.nav > li > .a{
+    background: rgb(40, 39, 37);
+    padding: 20px;
+    display: block;
+}
+
+.nav > li:hover > .a {
+    background: rgb(79, 77, 72);
+
+}
+
+.despliegaDeportes{
+    background: rgb(79, 77, 72);
+    padding: 10px;
+    position: absolute;
+    display: none;
+}
+
+.despliegaDeportes ul >li{
+    display: inline-block;
+}
+
+.nav li:hover .despliegaDeportes{
+    display: block;
+}

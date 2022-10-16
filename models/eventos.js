@@ -16,8 +16,8 @@ const Equipo = new Schema({
 const Evento = new Schema(
     { 
         fecha: {
-            type: String,
-            default: () => (new Date()).toLocaleString()
+            type: Date,
+            default: () => new Date()
          },
         equipo1: Equipo,
         equipo2: Equipo,
