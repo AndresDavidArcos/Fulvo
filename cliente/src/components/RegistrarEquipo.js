@@ -5,10 +5,18 @@ function RegistrarEquipo() {
   const navigate = useNavigate();
   const [equipo, setEquipo] = useState({
     nombre: "",
-    categoria: ""
+    logoEquipo: ""
   });
 
-  const handleChange = async (e) => {
+  const [file, setFile] = useState({
+    logoEquipo: ""
+  });
+
+  const onFileChange = (e) => {
+    setFile({ logoEquipo: e.target.files[0] })
+  }
+
+  const handleChange = (e) => {
     e.preventDefault();
     setEquipo({
         [e.target.name]: e.target.value
@@ -18,6 +26,14 @@ function RegistrarEquipo() {
 
   const registerTeam = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append('logoEquipo', file.logoEquipo)
+    const res = await fetch("http://localhost:2000/subir", {
+      method: "POST",
+      body: formData
+    });
+    const resData = await res.json();
+    /*
     try {
         const res = await fetch("http://localhost:2000/Fulvo/RegistrarEquipo", {
       method: "POST",
@@ -34,7 +50,7 @@ function RegistrarEquipo() {
     } catch (error) {
         console.log(error)
     }
-   
+   */
     
   };
   
@@ -53,8 +69,13 @@ function RegistrarEquipo() {
       <label>nombre</label>
       <input type="text" name="nombre" onChange={handleChange} />
 
+      <label>Logo</label>
+      <input type="file" name="logoEquipo" onChange={onFileChange} />        
+
       <button type="submit">REGISTRAR</button>
       </form>
+
+
     </div>
   );
 }

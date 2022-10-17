@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import "../styles/header.css";
+import logo from "../images/fulvoLogo.png"
 
 
 function Header() {
+  const params = useParams();
+  console.log(params)
+  const nombreUsuario = params.usuario || "si aun no tienes una cuenta puedes registrarte"
+
   const navigate = useNavigate();
   useEffect(() => {
     obtenerCategorias();
@@ -17,7 +22,6 @@ function Header() {
 
       const res = await fetch("http://localhost:2000/Fulvo/Categorias");
       const categorias = await res.json()
-      console.log("wtf bro", categorias.data)
       setCategorias(categorias.data);
     } catch (error) {
       console.log("Error en la BD: ", error);
@@ -31,16 +35,19 @@ function Header() {
     <header>
         <div className="welcomeBar">´
           
-          <p>Bienvenido</p>
+          <p>Bienvenido, {nombreUsuario}.</p>
           <button onClick={()=> navigate("/Registrar/Categoria")}>Registrar Deporte</button>
-          <button>Registrar Equipo</button>
-          <button>Login</button>
+          <button onClick={()=> navigate("/Registrar/Equipo")}>Registrar Equipo</button>
+          <button onClick={()=> navigate("/Login")}>Login</button>
 
         </div>
 
         <figure>
           <figcaption>Fulvo</figcaption>
-          <img src="./images/fulvoLogo.png" alt="Deportes"/>
+          <img src={logo} style={{
+            width: "100%",
+            height: "400px"
+          }} alt="Deportes"/>
         </figure>
 
         <nav className="nav">

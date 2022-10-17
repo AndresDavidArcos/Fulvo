@@ -26,7 +26,7 @@ function Login() {
           if (res.ok) {
             const resData = await res.json();
             const userLogged = resData.data;
-            navigate("/"+userLogged._id);
+            navigate("/Inicio/"+userLogged.nombre+"/Futbol");
         }else{
             console.log("algo ha salido mal")
         }
@@ -53,6 +53,10 @@ function Login() {
 
       <button type="submit">LOGIN</button>
       </form>
+
+      <p>¿Aun no tienes una cuenta?</p>
+      <button onClick={() => navigate("/Register")}>REGISTRATE</button>
+
     </div>
   );
 }

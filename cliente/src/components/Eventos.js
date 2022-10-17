@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-function EventosPrincipales() {
+function Eventos() {
   const navigate = useNavigate();
   const params = useParams();
   const categoria = params.categoria || "Futbol";
@@ -9,11 +9,11 @@ function EventosPrincipales() {
   
   const [eventos, setEventos] = useState([]);
 
-  const obtenerEventosPrincipales = async () =>{
+  const obtenerEventos = async () =>{
     try {
-      const res = await fetch("http://localhost:2000/Fulvo/UltimosEventos/"+categoria);
-      const lastEvents = await res.json()
-      setEventos(lastEvents.data);
+      const res = await fetch("http://localhost:2000/Fulvo/Eventos/"+categoria);
+      const events = await res.json()
+      setEventos(events.data);
     } catch (error) {
       console.log(error);
     }
@@ -21,12 +21,15 @@ function EventosPrincipales() {
  
 }
   useEffect(() => {
-    obtenerEventosPrincipales();
+    obtenerEventos();
   }, []);
 
   return (
     <section>
-      <h1>EVENTOS PRINCIPALES DEL {categoria} </h1>
+      <h1>EVENTOS DEL {categoria} </h1>
+     
+        <button onClick={() => navigate("/RegistrarEvento")}>REGISTRAR JUEGO</button>
+     
       {eventos.map( unEvento => (
         <article key={unEvento._id}>
 
@@ -61,15 +64,9 @@ function EventosPrincipales() {
 
       )}
 
-      <div className="gameOptions">
-        <button onClick={() => navigate("/RegistrarEvento")}>REGISTRAR JUEGO</button>
-        <button onClick={() => navigate("/Eventos")}>VER TODOS LOS JUEGOS</button>
-
-      </div>
-
 
     </section>
   );
 }
 
-export default EventosPrincipales;
+export default Eventos;
