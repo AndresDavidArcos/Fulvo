@@ -15,7 +15,7 @@ module.exports = {
    async registrarEvento(req, res){
       try {
          const eventProps = req.body;
-         console.log("el que si le sabe", eventProps);
+         console.log(eventProps);
          const eventCreated = await Event.create(eventProps);
 
          res.status(201).send({ data: eventCreated});

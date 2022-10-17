@@ -1,9 +1,9 @@
 const {obtenerCategorias, registrarCategoria} = require("../controllers/categorias");
 const express = require("express");
-const router = express.Router();
+const app = express();
 
 
-router.post("/RegistrarCategoria", registrarCategoria);
-router.get("/Categorias", obtenerCategorias);
+app.post("/RegistrarCategoria", registrarCategoria);
+app.get("/Categorias", obtenerCategorias);
 
-module.exports = router;
+module.exports = app;

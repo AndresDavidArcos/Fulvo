@@ -2,17 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function RegistrarEquipo() {
-
-
+  const navigate = useNavigate();
   const [equipo, setEquipo] = useState({
     nombre: "",
-    categoria: ""
+    logoEquipo: ""
   });
-
-  
-  useEffect(()=>{
-    console.log("analizo", equipo)
-  }, [equipo])
 
   const [file, setFile] = useState({
     logoEquipo: ""
@@ -25,54 +19,38 @@ function RegistrarEquipo() {
   const handleChange = (e) => {
     e.preventDefault();
     setEquipo({
-      ...equipo, [e.target.name]: e.target.value
+        [e.target.name]: e.target.value
     })
 
   };
 
   const registerTeam = async (e) => {
     e.preventDefault();
-    console.log(equipo);
-console.log("AÑAAAAAAAAA")
+    const formData = new FormData();
+    formData.append('logoEquipo', file.logoEquipo)
+    const res = await fetch("http://localhost:2000/subir", {
+      method: "POST",
+      body: formData
+    });
+    const resData = await res.json();
+    /*
     try {
-      console.log("anya")
-
-      const res1 = await fetch("http://localhost:2000/Fulvo/RegistrarEquipo", {
+        const res = await fetch("http://localhost:2000/Fulvo/RegistrarEquipo", {
       method: "POST",
       body: JSON.stringify(equipo),
       headers: { "Content-Type": "application/json" },
     });
-    console.log("jijija")
 
-    if (res1.ok) {
-      const resData1 = await res1.json();
-      console.log(resData1.message);
+    if (res.ok) {
+      const resData = await res.json();
+      console.log(resData.message);
     }else{
-      console.log("algo ha salido mal al registrar un equipo")
+      console.log("algo ha salido mal")
   }
-
-  console.log("AUUUUUU")
-
-  const formData = new FormData();
-  formData.append('logoEquipo', file.logoEquipo)
-  const res2 = await fetch("http://localhost:2000/subir/"+equipo.nombre, {
-    method: "POST",
-    body: formData
-  })
-  console.log("IG DE LA MINITA")
-
-    if (res2.ok) {
-      const resData2 = await res2.json();
-      console.log(resData2.message);
-    }else{
-      console.log("algo ha salido mal al subir el logo del equipo")
-  }  
-
-
     } catch (error) {
         console.log(error)
     }
-   
+   */
     
   };
   
