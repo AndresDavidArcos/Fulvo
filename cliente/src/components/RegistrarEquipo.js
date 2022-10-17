@@ -5,7 +5,7 @@ function RegistrarEquipo() {
   const navigate = useNavigate();
   const [equipo, setEquipo] = useState({
     nombre: "",
-    logoEquipo: ""
+    categoria: ""
   });
 
   const [file, setFile] = useState({
@@ -28,7 +28,7 @@ function RegistrarEquipo() {
     e.preventDefault();
     const formData = new FormData();
     formData.append('logoEquipo', file.logoEquipo)
-    const res = await fetch("http://localhost:2000/subir", {
+    const res = await fetch("http://localhost:2000/subir/"+equipo.nombre, {
       method: "POST",
       body: formData
     });
