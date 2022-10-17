@@ -78,7 +78,7 @@ function RegistrarEvento() {
 
   return (
     <div>
-      <h1>Registrar equipo</h1>
+      <h1>Registrar juego</h1>
       <form onSubmit={registerEvent}>
 
       <label>categoria</label>
