@@ -22,7 +22,7 @@ function Eventos() {
 }
   useEffect(() => {
     obtenerEventos();
-  }, []);
+  }, [categoria]);
 
   return (
     <section>

@@ -6,10 +6,10 @@ import logo from "../images/fulvoLogo.png"
 
 function Header() {
   const params = useParams();
-  console.log(params)
   const nombreUsuario = params.usuario || "si aun no tienes una cuenta puedes registrarte"
 
   const navigate = useNavigate();
+
   useEffect(() => {
     obtenerCategorias();
   }, [])
@@ -56,7 +56,7 @@ function Header() {
           {(Array.isArray(categorias))
           ?
             categorias.slice(0, 4).map( unaCategoria =>(
-                <li className="li"><Link className="a" to={"/Inicio/"+unaCategoria.nombre}>{unaCategoria.nombre}</Link></li>
+                <li className="li"><Link className="a" to={"/Inicio/"+nombreUsuario+"/"+unaCategoria.nombre}>{unaCategoria.nombre}</Link></li>
               )
 
           )
@@ -70,7 +70,7 @@ function Header() {
             {(Array.isArray(categorias))
           ?
             categorias.slice(4).map( unaCategoria =>(
-                <li className="li"><Link className="a" to={"/Inicio/"+unaCategoria.nombre}>{unaCategoria.nombre}</Link></li>
+                <li className="li"><Link className="a" to={"/Inicio/"+nombreUsuario+"/"+unaCategoria.nombre}>{unaCategoria.nombre}</Link></li>
               )
 
           )

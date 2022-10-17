@@ -18,7 +18,7 @@ module.exports = {
          console.log(eventProps);
          const eventCreated = await Event.create(eventProps);
 
-         res.status(201).send({ data: eventCreated});
+         res.status(201).send({ message: "Evento creado exitosamente"});
       } catch (next) {
          
       }

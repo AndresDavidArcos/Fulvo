@@ -21,8 +21,9 @@ function EventosPrincipales() {
  
 }
   useEffect(() => {
+
     obtenerEventosPrincipales();
-  }, []);
+  }, [categoria]);
 
   return (
     <section>
@@ -62,8 +63,8 @@ function EventosPrincipales() {
       )}
 
       <div className="gameOptions">
-        <button onClick={() => navigate("/RegistrarEvento")}>REGISTRAR JUEGO</button>
-        <button onClick={() => navigate("/Eventos")}>VER TODOS LOS JUEGOS</button>
+        <button onClick={() => navigate("/Registrar/Evento")}>REGISTRAR JUEGO</button>
+        <button onClick={() => navigate("/Eventos/"+categoria)}>VER TODOS LOS JUEGOS</button>
 
       </div>
 

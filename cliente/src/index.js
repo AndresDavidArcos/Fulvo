@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom/client'
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import Eventos from './components/Eventos';
 import LandingPage from './components/LandingPage';
 import Login from './components/Login';
 import Register from './components/Register';
@@ -13,6 +14,7 @@ root.render(<>
     <Router>
     <Routes>
         <Route path="/Inicio/:usuario/:categoria" element={<LandingPage/>}></Route>
+        <Route path="/Eventos/:categoria" element={<Eventos/>}></Route>
         <Route path="/Registrar/Equipo" element={<RegistrarEquipo/>}></Route>
         <Route path="/Registrar/Evento" element={<RegistrarEvento/>}></Route>
         <Route path="/Registrar/Categoria" element={<RegistrarCategoria/>}></Route>
