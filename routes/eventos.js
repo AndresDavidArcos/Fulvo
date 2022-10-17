@@ -1,10 +1,10 @@
 const {obtenerEventosPorCategoria, registrarEvento, ultimosEventos} = require("../controllers/eventos");
 const express = require("express");
-const app = express();
+const router = express.Router()
 
 
-app.post("/RegistrarEvento", registrarEvento);
-app.get("/Eventos/:category", obtenerEventosPorCategoria);
-app.get("/UltimosEventos/:category", ultimosEventos);
+router.post("/RegistrarEvento", registrarEvento);
+router.get("/Eventos/:category", obtenerEventosPorCategoria);
+router.get("/UltimosEventos/:category", ultimosEventos);
 
-module.exports = app;
+module.exports = router;

@@ -1,9 +1,9 @@
 const {loginVerification, register} = require("../controllers/login");
 
 const express = require("express");
-const app = express();
+const router = express.Router();
 
-app.post("/register", register);
-app.post("/login", loginVerification);
+router.post("/register", register);
+router.post("/login", loginVerification);
 
-module.exports = app;
+module.exports = router;

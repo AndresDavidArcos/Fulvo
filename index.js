@@ -1,29 +1,14 @@
 const express = require("express");
 const cors = require("cors");
-const multer = require("multer")
-
-
-const storage = multer.diskStorage({
-    destination: './public/',
-    filename: function (req, file, cb) {
-        cb(null, file.originalname);
-        }
-    
-});
-
-const upload = multer({storage: storage});
 
 const app = express();
-const db = require("./database")
+
 //middlewares
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({extended: true}))
 app.use("/Fulvo/Imagenes", express.static(__dirname+"/public"));
 
-app.post("/subir", upload.single('logoEquipo'), (req, res) =>{
-    console.log("ATRAPADO")
-    res.status(200).send({message: "Archivo subido correctamente"});
-})
 //configuraciones
 app.set("port","2000");
 
