@@ -19,38 +19,44 @@ function RegistrarEquipo() {
   const handleChange = (e) => {
     e.preventDefault();
     setEquipo({
-        [e.target.name]: e.target.value
+       ...equipo, [e.target.name]: e.target.value
     })
 
   };
 
   const registerTeam = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append('logoEquipo', file.logoEquipo)
-    const res = await fetch("http://localhost:2000/subir/"+equipo.nombre, {
-      method: "POST",
-      body: formData
-    });
-    const resData = await res.json();
-    /*
-    try {
-        const res = await fetch("http://localhost:2000/Fulvo/RegistrarEquipo", {
-      method: "POST",
-      body: JSON.stringify(equipo),
-      headers: { "Content-Type": "application/json" },
-    });
 
-    if (res.ok) {
-      const resData = await res.json();
-      console.log(resData.message);
-    }else{
-      console.log("algo ha salido mal")
+    try {
+      const res = await fetch("http://localhost:2000/Fulvo/RegistrarEquipo", {
+    method: "POST",
+    body: JSON.stringify(equipo),
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (res.ok) {
+    const resData = await res.json();
+    console.log(resData.message);
+  }else{
+    console.log("algo ha salido mal")
+}
+  } catch (error) {
+      console.log("atrapado", error)
   }
+   
+    try {
+
+      const formData = new FormData();
+      formData.append('logoEquipo', file.logoEquipo)
+      const res = await fetch("http://localhost:2000/subir/"+equipo.nombre, {
+        method: "POST",
+        body: formData
+      });
+      const resData = await res.json();
+      console.log("Exito", resData)
     } catch (error) {
-        console.log(error)
+      console.log(error)
     }
-   */
     
   };
   
