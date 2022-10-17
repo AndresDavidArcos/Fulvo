@@ -24,7 +24,7 @@ app.post("/subir/:nombreEquipo", upload.single('logoEquipo'), (req, res) =>{
     const {nombreEquipo} = req.params;
     const fileName = req.file.originalname;
     const fileExtension = (fileName.split("."))[1];
-    fs.rename("./public/"+fileName, "./public/"+nombreEquipo+"."+fileExtension, ()=>{console.log("archivo renombrado: ", fileName)})
+    fs.rename("./public/"+fileName, "./public/"+nombreEquipo+".png", ()=>{console.log("archivo renombrado: ", fileName)})
     res.status(200).send({message: "Archivo subido correctamente"});
 })
 //configuraciones
