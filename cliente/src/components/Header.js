@@ -20,7 +20,7 @@ function Header() {
   const obtenerCategorias = async () => {
     try {
 
-      const res = await fetch("http://localhost:8081/Fulvo/Categorias");
+      const res = await fetch("http://150.136.246.83:8081/Fulvo/Categorias");
       const categorias = await res.json()
       setCategorias(categorias.data);
     } catch (error) {

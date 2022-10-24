@@ -53,7 +53,7 @@ function RegistrarEvento() {
   const registerEvent = async (e) => {
     e.preventDefault();
     try {
-        const resData = await fetch("http://localhost:8081/Fulvo/RegistrarEvento", {
+        const resData = await fetch("http://150.136.246.83:8081/Fulvo/RegistrarEvento", {
       method: "POST",
       body: JSON.stringify(evento),
       headers: { "Content-Type": "application/json" },

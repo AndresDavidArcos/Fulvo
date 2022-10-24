@@ -11,7 +11,7 @@ function Eventos() {
 
   const obtenerEventos = async () =>{
     try {
-      const res = await fetch("http://localhost:8081/Fulvo/Eventos/"+categoria);
+      const res = await fetch("http://150.136.246.83:8081/Fulvo/Eventos/"+categoria);
       const events = await res.json()
       setEventos(events.data);
     } catch (error) {
@@ -36,7 +36,7 @@ function Eventos() {
           <div className="equipo1">
             <figure>
               <figcaption>{unEvento.equipo1.nombre}</figcaption>
-              <img  src={"http://localhost:8081/Fulvo/Imagenes/"+unEvento.equipo1.nombre+".png"} alt={unEvento.equipo1.nombre}/>
+              <img  src={"http://150.136.246.83:8081/Fulvo/Imagenes/"+unEvento.equipo1.nombre+".png"} alt={unEvento.equipo1.nombre}/>
             </figure>
             <p>{unEvento.equipo1.marcador}</p>
           </div>
@@ -50,7 +50,7 @@ function Eventos() {
           <div className="equipo2">
           <figure>
               <figcaption>{unEvento.equipo2.nombre}</figcaption>
-              <img  src={"http://localhost:8081/Fulvo/Imagenes/"+unEvento.equipo2.nombre+".png"}  alt={unEvento.equipo2.nombre}/>
+              <img  src={"http://150.136.246.83:8081/Fulvo/Imagenes/"+unEvento.equipo2.nombre+".png"}  alt={unEvento.equipo2.nombre}/>
             </figure>
             <p>{unEvento.equipo2.marcador}</p>
           </div>

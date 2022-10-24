@@ -18,7 +18,7 @@ function Register() {
   const registerUser = async (e) => {
     e.preventDefault();
     try {
-        const res = await fetch("http://localhost:8081/Fulvo/register", {
+        const res = await fetch("http://150.136.246.83:8081/Fulvo/register", {
       method: "POST",
       body: JSON.stringify(user),
       headers: { "Content-Type": "application/json" },

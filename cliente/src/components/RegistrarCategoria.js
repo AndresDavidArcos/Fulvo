@@ -18,7 +18,7 @@ function RegistrarCategoria() {
   const registerCategory = async (e) => {
     e.preventDefault();
     try {
-        const res = await fetch("http://localhost:8081/Fulvo/RegistrarCategoria", {
+        const res = await fetch("http://150.136.246.83:8081/Fulvo/RegistrarCategoria", {
       method: "POST",
       body: JSON.stringify(categoria),
       headers: { "Content-Type": "application/json" },
