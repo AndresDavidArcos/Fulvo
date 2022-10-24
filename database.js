@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const MONGO_URI = "mongodb://localhost:27017/eventos";
+const MONGO_URI = "mongodb://basededatos:27017/eventos";
 
 module.exports = mongoose.connect(MONGO_URI)
 .then(()=>{

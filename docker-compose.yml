@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  server:
+    build: .
+    ports:
+      - '2000:2000'
+    depends_on:
+      - db    
+    container_name: api
+    links:
+      - basededatos    
+  frontend:
+    build: ./cliente
+    ports:
+      - '3000:3000'
+    depends_on:
+      - server    
+    container_name: cliente
+    links:
+      - api        
+  db:
+    image: mongo
+    restart: always
+    volumes: 
+      - 'dbdata:/data/db'
+    container_name: basededatos          
+volumes: 
+  dbdata:       
+  
