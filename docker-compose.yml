@@ -1,6 +1,12 @@
 version: '3.9'
 
 services:
+  db:
+    image: mongo
+    restart: always
+    volumes: 
+      - 'dbdata:/data/db'
+    container_name: basededatos  
   server:
     build: .
     restart: always
@@ -20,13 +26,7 @@ services:
       - server    
     container_name: cliente
     links:
-      - api        
-  db:
-    image: mongo
-    restart: always
-    volumes: 
-      - 'dbdata:/data/db'
-    container_name: basededatos          
+      - api                
 volumes: 
   dbdata:       
   
