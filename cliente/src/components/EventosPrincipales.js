@@ -11,7 +11,7 @@ function EventosPrincipales() {
 
   const obtenerEventosPrincipales = async () =>{
     try {
-      const res = await fetch("http://localhost:2000/Fulvo/UltimosEventos/"+categoria);
+      const res = await fetch("http://localhost:8081/Fulvo/UltimosEventos/"+categoria);
       const lastEvents = await res.json()
       setEventos(lastEvents.data);
     } catch (error) {
@@ -34,7 +34,7 @@ function EventosPrincipales() {
           <div className="equipo1">
             <figure>
               <figcaption>{unEvento.equipo1.nombre}</figcaption>
-              <img  src={"http://localhost:2000/Fulvo/Imagenes/"+unEvento.equipo1.nombre+".png"}  alt={unEvento.equipo1.nombre}/>
+              <img  src={"http://localhost:8081/Fulvo/Imagenes/"+unEvento.equipo1.nombre+".png"}  alt={unEvento.equipo1.nombre}/>
             </figure>
             <p>{unEvento.equipo1.marcador}</p>
           </div>
@@ -48,7 +48,7 @@ function EventosPrincipales() {
           <div className="equipo2">
           <figure>
               <figcaption>{unEvento.equipo2.nombre}</figcaption>
-              <img  src={"http://localhost:2000/Fulvo/Imagenes/"+unEvento.equipo2.nombre+".png"}  alt={unEvento.equipo2.nombre}/>
+              <img  src={"http://localhost:8081/Fulvo/Imagenes/"+unEvento.equipo2.nombre+".png"}  alt={unEvento.equipo2.nombre}/>
             </figure>
             <p>{unEvento.equipo2.marcador}</p>
           </div>

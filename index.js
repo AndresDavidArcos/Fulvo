@@ -29,7 +29,7 @@ app.post("/subir/:nombreEquipo", upload.single('logoEquipo'), (req, res) =>{
     res.status(200).send({message: "Archivo subido correctamente"});
 })
 //configuraciones
-app.set("port","2000");
+app.set("port","8081");
 
 //rutas
 app.use("/Fulvo",require("./routes/eventos"));

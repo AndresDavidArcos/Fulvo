@@ -28,7 +28,7 @@ function RegistrarEquipo() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:2000/Fulvo/RegistrarEquipo", {
+      const res = await fetch("http://localhost:8081/Fulvo/RegistrarEquipo", {
     method: "POST",
     body: JSON.stringify(equipo),
     headers: { "Content-Type": "application/json" },
@@ -48,7 +48,7 @@ function RegistrarEquipo() {
 
       const formData = new FormData();
       formData.append('logoEquipo', file.logoEquipo)
-      const res = await fetch("http://localhost:2000/subir/"+equipo.nombre, {
+      const res = await fetch("http://localhost:8081/subir/"+equipo.nombre, {
         method: "POST",
         body: formData
       });
