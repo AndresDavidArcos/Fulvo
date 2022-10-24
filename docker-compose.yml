@@ -10,7 +10,7 @@ services:
     build: .
     restart: always
     ports:
-      - '2000:2000'
+      - '8081:8081'
     depends_on:
       - db    
     links:
@@ -19,7 +19,7 @@ services:
     build: ./cliente
     restart: always    
     ports:
-      - '3000:3000'
+      - '8089:8089'
     depends_on:
       - server    
     links:
