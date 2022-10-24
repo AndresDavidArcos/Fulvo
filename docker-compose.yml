@@ -6,7 +6,6 @@ services:
     restart: always
     volumes: 
       - 'dbdata:/data/db'
-    container_name: basededatos  
   server:
     build: .
     restart: always
@@ -14,9 +13,8 @@ services:
       - '2000:2000'
     depends_on:
       - db    
-    container_name: api
     links:
-      - basededatos    
+      - db    
   frontend:
     build: ./cliente
     restart: always    
@@ -24,9 +22,7 @@ services:
       - '3000:3000'
     depends_on:
       - server    
-    container_name: cliente
     links:
-      - api                
+      - server                
 volumes: 
-  dbdata:       
-  
+  dbdata:      
